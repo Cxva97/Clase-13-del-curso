@@ -1,0 +1,14 @@
+<h1>LISTA DE PRODUCTOS</h1>
+<ul>
+    {%for producto in productos%}
+    <li>el producto {{producto.name}} tiene un costo de: {{producto.price}} 
+        total de stock ={{producto.stock}} 
+        {%if producto.Available == True%}
+             <span>Disponible</span>
+        {%else%}
+             <span>No Disponible</span>
+        {%endif%}
+    
+    </li>
+    {%endfor%}
+</ul>

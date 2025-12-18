@@ -8,5 +8,5 @@ class Producto(models.Model):
     Available = models.BooleanField(default=True)
     
     def __str__ (self):
-        return f"{self.name}"
+        return f"{self.name} = {self.price}"
     

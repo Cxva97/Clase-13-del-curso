@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from .models import Producto
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
@@ -19,3 +20,19 @@ def mostrarNombres_render(request, name, surname):
         "surname": surname
     }
     return render(request, 'nombre.html', context=context)
+
+#VIEWS CON ORM
+def all_products(request):
+    productos = Producto.objects.all()
+    context ={
+        'productos' : productos
+    }
+    return render(request, 'list_products.html', context)
+
+def detail_product_id(request,id):
+    producto = get_object_or_404(Producto, id=id) #POR DEFECTO DEVUELVE UNA LISTA DE OBJETOS
+    context = {
+        'producto' : producto
+    }
+    return render (request, 'detail_id.html', context)
+    

@@ -5,5 +5,9 @@ urlpatterns = [
     path('',views.home , name="productosmain") ,
     path('id/<str:nombre>/',views.detail_product_render , name="detailproduct"),
     path('detalle/<int:cantidad>/<str:descripcion>', views.detalle, name="detalle"),
-    path('<str:name>/<str:surname>/', views.mostrarNombres_render, name= "mostrarNombre")
+    path('<str:name>/<str:surname>/', views.mostrarNombres_render, name= "mostrarNombre"),
+    #CONSULAS A ORM
+    path('all/', views.all_products, name="allproducts"),
+    path('detail/productdetail/<int:id>/', views.detail_product_id, name= 'detail_product'),
+    
 ]
